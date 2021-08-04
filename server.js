@@ -4,11 +4,11 @@ let express = require('express');
 //initialize the app 
 let app = express(); 
 
-//let bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 
 //import router 
-//router = require('./routes');
-//app.use('/', router); 
+let router = require('./routes');
+app.use('/', router); 
 
 //message example 
 app.get('/', function (request, response) {
