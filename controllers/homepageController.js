@@ -1,3 +1,3 @@
-exports.home = function (request, response) {
-    response.render('home.ejs');
+exports.homepage = function (request, response) {
+    response.render('homepage.ejs');
 };
