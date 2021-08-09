@@ -23,7 +23,7 @@
     padding: 0;
     width:138px;
     height:72px;
-    box-shadow:5px 5px 2px grey; 
+    /*box-shadow:5px 5px 2px grey; */
   }
   .m-right {
     float: right;
@@ -41,14 +41,12 @@
     border-bottom: 4px solid transparent;
     display: inline-block;
     height: 68px;
-  
   }
   .m-link:hover{
     border-color: black;
-  
   }
   .m-link i {
     margin-right: 5px;
   }
-/******************************************************************************************/
+
 
