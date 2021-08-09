@@ -1,0 +1,51 @@
+/******************************************GENERAL******************************************/
+* {
+    font-family: 'Roboto', sans-serif,'Arial';
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.2em;
+    font-style: italic;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+
+/******************************************WHATCANIDO******************************************/
+  .conteneur { /*Aligne les éléments du banner côte à côte*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+.conteneur p {
+  width: 100px;
+}
+#valeurs {
+  overflow:hidden;
+  background-color: #8125bc;
+  margin: 0;
+  padding: 0;
+}
+.element1 img /*bannière page d'accueil 3 images ont la même taille*/
+{
+  padding-left: 262px;
+  width: 70px;
+}
+.element2 img /*bannière page d'accueil 3 images ont la même taille*/
+{
+  padding-left: 260px;
+  width: 65px;
+}
+.element3 img /*bannière page d'accueil 3 images ont la même taille*/
+{
+  padding-left: 268px;
+  width: 62px;
+} 

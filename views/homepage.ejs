@@ -4,22 +4,37 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="/public/homepage.css"/>
-        <title>Sound 56</title>
+        <link rel="stylesheet" href="/public/css/homepage.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+        <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     
-    <!--include the header-->
+    <!-----------------include the header----------------------->
     <%- include('header.ejs')%>
+    <!---------------------------------------------------------->
 
     <body>
-        <p>
-            Bienvenue sur le site Sound 56 ! <br>
-            Sound 56 vous permet de vous créer un profil, d'y ajouter vos centres d'intérêts et vos goûts musicaux, et finalement d'acheter les morceaux qui vous plaisent.
+        <h1>Welcome to Sound 56's website!</h1>
+		<p>The Sound 56 website is a platform for sharing and buying musical compositions, whatever they are. It is a kind of social network for music lovers wishing to support composers or share their own compositions.<br><br>
+		<br>
         </p>
+        <div id="valeurs">
+            <h1>What can you do?</h1>
+                <div class="conteneur">
+                    <div class="element1"><img src="/public/images/createProfile.png" alt="profile icon"> 
+                        <p><strong>Create a profile</strong></p></div>
+                    <div class="element2"><img src="/public/images/browsing.png" alt="browsing icon">
+                        <p><strong>Browse other profiles</strong></p></div>
+                    <div class="element3"><img src="/public/images/listeningMusic.png" alt="music icon">
+                        <p><strong>Buy and share musical compositions</strong></p></div> 
+                </div>
+        </div><br><br>
 
     </body>
 
-    <!--include footer-->
+    <!-----------------include the header----------------------->
     <%- include('footer.ejs')%>
-
+    <!---------------------------------------------------------->
+    
 </html>
