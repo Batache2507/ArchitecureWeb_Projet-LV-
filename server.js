@@ -6,6 +6,12 @@ let app = express();
 
 let bodyParser = require('body-parser');
 
+//apply css 
+app.use(express.static("public"));
+
+//display images
+app.use("/public", express.static('public'));
+
 //import router 
 let router = require('./routes');
 app.use('/', router); 

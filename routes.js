@@ -9,7 +9,7 @@ let instrumentsController = require('./controllers/instrumentsController.js');
 
 //les routes 
 router.get('/', function (request, response) {
-    response.render ('/homepage');
+    response.redirect ('/homepage');
 });
 
 router.get('/homepage', homepageController.homepage);
