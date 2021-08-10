@@ -33,8 +33,14 @@
         <input type="text" name="lastname" placeholder="Last name">
         <br>
 
-
+        <label>Where do you live?</label>
+        <select name="location" v-model="location">
+            <option v-for="ele in regions" :key="ele">{{ele}}</option>
+        </select>
+        <br>
     </fieldset>
+
+    <input type="submit" name="createProfileButton" class="createProfileButton" value="Create your profile"> 
 
     </form>
 
