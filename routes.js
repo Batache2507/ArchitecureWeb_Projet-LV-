@@ -3,10 +3,11 @@ let router = express.Router();
 
 //***********************MVC routes***********************//
 let homepageController = require('./controllers/homepageController.js');
-let instrumentsController = require('./controllers/instrumentsController.js');
+//let instrumentsController = require('./controllers/instrumentsController.js');
 let profilesController = require('./controllers/profilesController.js');
+//let settingsController = require('./controllers/settingsController.js')
 //let artistController = require('./controllers/artistController.js');
-//let settingsArtistController = require('./controllers/settingsArtistController.js')
+
 
 //routes for the main pages
 router.get('/', function (request, response) {
@@ -15,17 +16,17 @@ router.get('/', function (request, response) {
 //route for the homepage
 router.get('/homepage', homepageController.homepage);
 //route for the profile page 
-router.get('/createProfile', profilesController.createProfile);
+//router.get('/createProfile', profilesController.createProfile);
 
 
 
 //MVC profiles actions
 //add a profile
-router.post('/createProfile/add/', profilesController.addProfile);
+//router.post('/createProfile/add/', profilesController.addProfile);
 // Supprime un élément de la liste des joueurs
-router.get('/createProfile/delete/:id', profilesController.deleteProfile);
+//router.get('/createProfile/delete/:id', profilesController.deleteProfile);
 // Modifier un élément de la liste joueurs 
-router.get('/createProfile/update/:id', profilesController.updateProfile);
+//router.get('/createProfile/update/:id', profilesController.updateProfile);
 
 
 

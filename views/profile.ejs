@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/public/css/profile.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+        <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    
+    <!-----------------include the header----------------------->
+    <%- include('header.ejs')%>
+    <!---------------------------------------------------------->
+
+
+<body>
+    <h1>Your profile</h1> 
+    <!--profile picture? how to add one?-->
+    <input type="image" class="button"> <!--add a pic-->
+    <input type="submit" class="button"><!--change pic-->
+    <h2>Here is your musical compositions</h2>
+    <!--musical compositions? how to add several? But maybe put a limit?-->
+    <h2>Here is the instruments you like/play</h2>
+</body>
+
+    <!-----------------include the footer----------------------->
+    <%- include('footer.ejs')%>
+    <!---------------------------------------------------------->
+
+</html>

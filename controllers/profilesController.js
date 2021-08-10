@@ -1,6 +1,6 @@
-let connection = require('../db.js');
-let Profile = require('../models/profilesModel.js');
-listeProfiles = [];
+//let connection = require('../db.js');
+//let Profile = require('../models/profilesModel.js');
+//listeProfiles = [];
 
 //add a profile to the list 
 exports.addProfile = function (request, response) {
