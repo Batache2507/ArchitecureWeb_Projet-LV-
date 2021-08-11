@@ -17,7 +17,7 @@
   }
 
 /******************************************WHATCANIDO******************************************/
-  .conteneur { /*Aligne les éléments du banner côte à côte*/
+ .conteneur { /*Aligne les éléments du banner côte à côte*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,20 +35,38 @@
   padding: 0;
 }
 .element1 img /*bannière page d'accueil 3 images ont la même taille*/
-{
+  {
   padding-left: 262px;
   width: 70px;
 }
 .element2 img /*bannière page d'accueil 3 images ont la même taille*/
-{
+  {
   padding-left: 260px;
   width: 65px;
 }
 .element3 img /*bannière page d'accueil 3 images ont la même taille*/
-{
+  {
   padding-left: 268px;
   width: 62px;
 } 
+
+/*WHATCANIDO reponsive not working*/
+/*.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-item-left {
+  width: 300px;
+}
+.flex-item-center {
+  width: 300px;
+}
+.flex-item-right {
+  width: 300px;
+}
+.img {
+  width:auto;
+}*/
 
 /******************************************BUTTON******************************************/
 .button {
@@ -61,10 +79,15 @@
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
-  cursor: pointer;
-  /*??????how to center the button???*/
+  cursor: pointer;  
 }
 .button:hover { 
   background-color: black;
   color: white;
+}
+/*center the button to create a profile*/
+.centerButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

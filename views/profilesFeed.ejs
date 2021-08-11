@@ -15,9 +15,12 @@
     <!---------------------------------------------------------->
 
     <body>
+        <h1>Here are all the profiles created on Sound 56...</h1><br>
        <% for(var i=0; i < users.length ; i++) {%>
-        <p> <%=  users[i].firstname %>
-        </p>
+        
+        <p> Here is <strong><%=  users[i].firstname %> <%= users[i].lastname %></strong>'s profile, aka <strong><%= users[i].nickname%></strong>.</p>
+        
+        <p>----------------------</p>
         <% } %>
     </body>
 
