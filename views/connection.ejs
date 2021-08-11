@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/public/css/homepage.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+        <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    
+    <!-----------------include the header----------------------->
+    <%- include('header.ejs')%>
+    <!---------------------------------------------------------->
+<body>
+    <form action="/profile" method="POST">
+        <input type="text" name="nickname"/>
+        <input type="submit" value="Sign in"/>
+    </form>
+    
+
+
+</body>
+
+
+
+
+      <!-----------------include the footer----------------------->
+      <%- include('footer.ejs')%>
+      <!---------------------------------------------------------->
+      
+  </html>
+  

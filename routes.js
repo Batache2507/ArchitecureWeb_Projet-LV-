@@ -15,14 +15,31 @@ router.get('/', function (request, response) {
 });
 //route for the homepage
 router.get('/homepage', homepageController.homepage);
-//route for the profile page 
-//router.get('/createProfile', profilesController.createProfile);
+//route for the cteation profile page 
+router.get('/createProfile', profilesController.createProfile);
 
 
 
 //MVC profiles actions
 //add a profile
-//router.post('/createProfile/add/', profilesController.addProfile);
+router.post('/createProfile', profilesController.addProfile);
+
+
+//route to display profiles on profilesFeed
+router.get('/profilesFeed', profilesController.feed);
+
+
+//route to sign in a user 
+router.post('/profile', profilesController.signIn)
+
+router.get('/signIn', function (request, response) {
+    response.render ('connection.ejs');
+});
+
+
+//add a Song
+router.post('/addSong', profilesController.addSong)
+
 // Supprime un élément de la liste des joueurs
 //router.get('/createProfile/delete/:id', profilesController.deleteProfile);
 // Modifier un élément de la liste joueurs 

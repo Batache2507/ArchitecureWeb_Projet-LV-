@@ -17,12 +17,18 @@
 
 <body>
     <h1>Your profile</h1> 
-    <!--profile picture? how to add one?-->
-    <input type="image" class="button"> <!--add a pic-->
-    <input type="submit" class="button"><!--change pic-->
     <h2>Here is your musical compositions</h2>
-    <!--musical compositions? how to add several? But maybe put a limit?-->
+    
     <h2>Here is the instruments you like/play</h2>
+
+    <%= user.nickname %> 
+<form action="/addSong" method="POST">
+        <input type="text" name="title" placeholder="Title "/>
+        <input type="text" name="duration" placeholder="Duration in seconds"/>
+        <input type="submit" value="Add song"/>
+        <input type="hidden" value="<%= user.id %>" name="user_id"/>
+    </form>
+
 </body>
 
     <!-----------------include the footer----------------------->

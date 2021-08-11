@@ -17,8 +17,8 @@
     <body>
     <!--profile form-->
     <h1>Create a profile</h1><br><br>
-    <form class="addProfile" action="/profile/add/" method="POST">
-    ><fieldset>
+    <form class="addProfile" action="/createProfile" method="POST">
+    <fieldset>
         <legend>Your information</legend>
 
         <label>Nickname</label>
@@ -33,9 +33,27 @@
         <input type="text" name="lastname" placeholder="Last name">
         <br>
 
+        <label>Your favorite genre</label>
+        <select name="musical_genre">
+            <option value="Rock">Rock</option> 
+            <option value="Rap">Rap</option>
+            <option value="Classical">Classical</option>
+        </select>
+        <br>
+
+        <label>Your instrument</label>
+        <select name="instrument">
+            <option value="Guitar">Guitar</option> 
+            <option value="Bass">Bass</option>
+            <option value="Drum">Drum</option>
+        </select>
+        <br>
+
         <label>Where do you live?</label>
-        <select name="location" v-model="location">
-            <option v-for="ele in regions" :key="ele">{{ele}}</option>
+        <select name="region">
+            <option value="BW">Brabant-Wallon</option> 
+            <option value="BF">Brabrant-flamand</option>
+            <option value="BX">Bruxelles</option>
         </select>
         <br>
     </fieldset>
