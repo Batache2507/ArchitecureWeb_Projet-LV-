@@ -5,11 +5,10 @@ let router = express.Router();
 let homepageController = require('./controllers/homepageController.js');
 //let instrumentsController = require('./controllers/instrumentsController.js');
 let profilesController = require('./controllers/profilesController.js');
-//let settingsController = require('./controllers/settingsController.js')
-//let artistController = require('./controllers/artistController.js');
 
 
-//routes for the main pages
+
+//***********************routes for the main pages***********************//
 router.get('/', function (request, response) {
     response.redirect ('/homepage');
 });
@@ -19,26 +18,22 @@ router.get('/homepage', homepageController.homepage);
 router.get('/createProfile', profilesController.createProfile);
 
 
-
-//MVC profiles actions
+//***********************MVC profiles actions***********************//
 //add a profile
 router.post('/createProfile', profilesController.addProfile);
-
-
 //route to display profiles on profilesFeed
 router.get('/profilesFeed', profilesController.feed);
-
-
-//route to sign in a user 
-router.post('/profile', profilesController.signIn)
-
+//route to identify in order to sign in a user 
 router.get('/signIn', function (request, response) {
     response.render ('connection.ejs');
 });
+//route to sign in a user 
+router.post('/profile', profilesController.signIn);
 
 
+//***********************MVC songs actions***********************//
 //add a Song
-router.post('/addSong', profilesController.addSong)
+router.post('/addSong', profilesController.addSong);
 
 // Supprime un élément de la liste des joueurs
 //router.get('/createProfile/delete/:id', profilesController.deleteProfile);

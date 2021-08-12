@@ -39,7 +39,7 @@ exports.signIn = function (request, response) {
 //add a profile to the list of profiles (for the feed)
 exports.addProfile = function (request, response) {
     let profile = new User(request.body.id, request.body.firstname, request.body.lastname, request.body.nickname, request.body.region, request.body.musical_genre, request.body.instrument);
-    connection.query("INSERT INTO users set ?", profile, function (error, resultSQL) {
+    connection.query("INSERT INTO users SET ?", profile, function (error, resultSQL) {
         if (error) {
             response.status(400).send(error);
         } else {
@@ -48,15 +48,14 @@ exports.addProfile = function (request, response) {
     });
 };
 
-//add a song to profile 
+//add a song to a profile 
 exports.addSong = function (request, response) {
     let song = new Song(request.body.id, request.body.title, request.body.duration, request.body.user_id)
     connection.query("INSERT INTO songs SET ?", song, function (error, resultSQLNewSong)  {
         if (error) {
             response.status(400).send(error);
         } else {
-            response.redirect('/homepage');
-
+           response.status(201).redirect('/profilesFeed');
         }
     });
 };
