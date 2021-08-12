@@ -43,7 +43,20 @@ exports.addProfile = function (request, response) {
         if (error) {
             response.status(400).send(error);
         } else {
-            response.status(201).redirect('/homepage'); //changer page destination to 'my profile'//
+            response.status(201).redirect('/profilesFeed'); //changer page destination to 'my profile'//
+        }
+    });
+};
+
+//add a song to profile 
+exports.addSong = function (request, response) {
+    let song = new Song(request.body.id, request.body.title, request.body.duration, request.body.user_id)
+    connection.query("INSERT INTO songs SET ?", song, function (error, resultSQLNewSong)  {
+        if (error) {
+            response.status(400).send(error);
+        } else {
+            response.redirect('/homepage');
+
         }
     });
 };
@@ -60,18 +73,6 @@ exports.deleteProfile = function (request, response) {
     });
 };
 
-//update music uploaded
 
 
-//add a song to profile 
-exports.addSong = function (request, response) {
-    let song = new Song(request.body.id, request.body.title, request.body.duration, request.body.user_id)
-    connection.query("INSERT INTO songs SET ?", song, (error, resultSQL) => {
-        if (error) {
-            response.status(400).send(error);
-        } else {
-            response.redirect('/homepage');
 
-        }
-    });
-};
