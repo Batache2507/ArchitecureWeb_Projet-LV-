@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="/public/css/homepage.css"/>
+        <link rel="stylesheet" href="/public/css/connection.css"/>
         <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
         <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -14,17 +14,17 @@
     <%- include('header.ejs')%>
     <!---------------------------------------------------------->
 <body>
+    <h1>Sign in to go to your profile page</h1>
+
+    <div class="form">
     <form action="/profile" method="POST">
-        <input type="text" name="nickname"/>
-        <input type="submit" value="Sign in"/>
+        <input type="text"  class="textboxNickname" placeholder= "Your nickname" name="nickname"/>
+        <input type="submit" class="button" value="Sign in"/>
     </form>
-    
+    </div><br>
 
 
 </body>
-
-
-
 
       <!-----------------include the footer----------------------->
       <%- include('footer.ejs')%>

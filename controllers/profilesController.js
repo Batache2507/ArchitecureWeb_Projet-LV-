@@ -8,8 +8,9 @@ exports.createProfile = function (request, response) {
     response.render('createProfile.ejs');
 }
 
+//display all the profiles created on the website on the page 'Profile's feed'
 exports.feed = function (request, response) {
-    connection.query('SELECT * from users', function (error, resultSQL) {
+    connection.query('SELECT * FROM users', function (error, resultSQL) {
         if (error) {
             response.status(400).send(error);
         } else {
@@ -18,36 +19,22 @@ exports.feed = function (request, response) {
     });
 }
 
+//signIn with the nickname in order to display the 'My Profile' page of the user with his songs 
 exports.signIn = function (request, response) {
-    connection.query('select * from users where nickname =  ?', request.body.nickname, function (error, resultSQL) {
+    connection.query('SELECT * FROM users  WHERE nickname =  ?', request.body.nickname, function (error, resultSQL) {
         if (error) {
             response.status(400).send(error);
         } else {
-            connection.query('select * from songs where songs.user_id =  ?', function (error, resultSQL) {
+            connection.query('SELECT * FROM songs WHERE user_id =  ?', resultSQL[0].id, function (error, resultSQL2) {
                 if (error) {
                     response.status(400).send(error);
+                } else {
+                    response.render('profile.ejs', { user: resultSQL[0], songs: resultSQL2 });
                 }
             });
-        };
-
-    })
-};
-
-//function signInSuite(response, result) {
-// console.log("WTF2")
-// connection.query("SELECT * FROM songs WHERE songs.user_id = ?;", function (error, resultSQL) {
-//  if (error) {
-//   response.status(400).send(error);
-//return;
-//console.log(error);
-//  }
-//   else {
-//       response.render('profile.ejs', { user: result, songs: resultSQL });
-//   }
-//  });
-//}
-
-
+        }
+    });
+}
 
 //add a profile to the list of profiles (for the feed)
 exports.addProfile = function (request, response) {
@@ -56,7 +43,7 @@ exports.addProfile = function (request, response) {
         if (error) {
             response.status(400).send(error);
         } else {
-            response.status(201).redirect('/homepage'); //change page destination to 'my profile'//
+            response.status(201).redirect('/homepage'); //changer page destination to 'my profile'//
         }
     });
 };
