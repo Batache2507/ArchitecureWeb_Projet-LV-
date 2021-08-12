@@ -19,14 +19,11 @@ exports.feed = function (request, response) {
 }
 
 exports.signIn = function (request, response) {
-    //let data;
-    connection.query("SELECT * FROM `users` WHERE `nickname` = ` ? ` ", request.body.nickname, function (error, resultSQL) {
+    connection.query('select * from users where nickname =  ?', request.body.nickname, function (error, resultSQL) {
         if (error) {
             response.status(400).send(error);
-            //console.log(error);
         } else {
-            //data = resultSQL
-            connection.query("SELECT * FROM `songs` WHERE `songs`.`user_id` = ` ? ` ", function (error, resultSQL) {
+            connection.query('select * from songs where songs.user_id =  ?', function (error, resultSQL) {
                 if (error) {
                     response.status(400).send(error);
                 }
