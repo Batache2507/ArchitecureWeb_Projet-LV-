@@ -18,8 +18,9 @@
 <body>
     <h1>Your profile</h1> 
     <p>Your nickname/pseudo is <strong><%= user.nickname %></strong>.</p>
-    <p>You live in the region: <strong><%= user.region%></strong>.</p>
-    <p>You like/play: <strong><%= user.instrument%></strong>.</p>
+    <p>You are from <strong><%= user.country%></strong>.</p>
+    <p>You favorite instrument is <strong><%= user.instrument%></strong>.</p>
+    <p>You favorite musical genre is <strong><%= user.musical_genre%></strong>.</p>
     <h2>Here is your musical compositions</h2>
     <%= songs.title %>
     <%= songs.duration%>
@@ -28,6 +29,7 @@
     
 <form action="/addSong" method="POST">
         <input type="text" name="title" placeholder="Title "/>
+        <input type="text" name="musical_genre" placeholder="The genre of the music"/>
         <input type="text" name="duration" placeholder="Duration in seconds"/>
         <input type="submit" value="Add song"/>
         <input type="hidden" value="<%= user.id %>" name="user_id"/>
