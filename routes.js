@@ -30,7 +30,7 @@ router.get('/signIn', function (request, response) {
 //route to sign in a user 
 router.post('/profile', profilesController.signIn);
 //route to delete your own profile
-router.get('/profile/:id', profilesController.deleteProfile);
+router.get('/deleteProfile/:id', profilesController.deleteProfile);
 
 
 //***********************MVC songs actions***********************//

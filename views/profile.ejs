@@ -35,7 +35,7 @@
         <input type="hidden" value="<%= user.id %>" name="user_id"/>
     </form><br><br>
 
-    <button onclick="if(confirm('Are you sure you want to delete your profile, and all the musical productions associated to it?')) location.window = 'profilesController/deleteProfile/<%= user.id %>'; else return false;" name="deleteProfile" class="button">Delete your account</button><br><br>
+    <button onclick="if(confirm('Are you sure you want to delete your profile, and all the musical productions associated to it?')) location.href = 'profilesController/deleteProfile/<%= user.id %>';" name="deleteProfile" class="button">Delete your account</button><br><br>
 
 </body>
 
