@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="/public/css/profilesFeed.css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
-        <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    </head>
-    
-    <!-----------------include the header----------------------->
-    <%- include('header.ejs')%>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/profilesFeed.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<!-----------------include the header----------------------->
+<%- include('header.ejs')%>
     <!---------------------------------------------------------->
 
     <body>
         <h1>Here are all the profiles created on Sound 56...</h1><br>
-       <% for(var i=0; i < users.length ; i++) {%>
-        
-        <p> Here is <strong><%=  users[i].firstname %> <%= users[i].lastname %></strong>'s profile, aka <strong><%= users[i].nickname%></strong>.</p>
-        <!--<p>His musical productions: <%= songs[i].title%></p>-->
-        
-        <p>----------------------</p>
+        <% for(var i=0; i < users.length ; i++) { %>
+            <p> Here is <strong><%= users[i].firstname %><%= users[i].lastname %></strong>'s profile, aka <strong><%= users[i].nickname%></strong>.</p>
+            <p>----------------------</p>
         <% } %>
+
     </body>
 
-    
+
     <!-----------------include the header----------------------->
     <%- include('footer.ejs')%>
     <!---------------------------------------------------------->

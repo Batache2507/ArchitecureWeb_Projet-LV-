@@ -20,21 +20,22 @@
     <p>Your nickname/pseudo is <strong><%= user.nickname %></strong>.</p>
     <p>You are from <strong><%= user.country%></strong>.</p>
     <p>You favorite instrument is <strong><%= user.instrument%></strong>.</p>
-    <p>You favorite musical genre is <strong><%= user.musical_genre%></strong>.</p>
-    <h2>Here is your musical compositions</h2><br>
-    <!--<%= song[i].title%>-->
-    <%= songs.title %>
-    <%= songs.duration%>
-
-    
-    
+    <p>You favorite musical genre is <strong><%= user.musical_genre%></strong>.</p><br>
+    <h2>Here is your musical compositions</h2>
+    <% for(var i=0; i < songs.length ; i++) { %>
+    <p><%= songs[i].title%> - <%= songs[i].musical_genre%> - <%= songs[i].duration%> seconds. </p>
+    <audio controls = "controls"></audio>
+    <% } %>   
+    <h2>Add more musical compositions below</h2>
 <form action="/addSong" method="POST">
         <input type="text" name="title" placeholder="Title "/>
         <input type="text" name="musical_genre" placeholder="The genre of the music"/>
         <input type="text" name="duration" placeholder="Duration in seconds"/>
         <input type="submit" value="Add song"/>
         <input type="hidden" value="<%= user.id %>" name="user_id"/>
-    </form>
+    </form><br><br>
+
+    <button name="deleteProfile" class="button">Delete your account</button><br><br>
 
 </body>
 

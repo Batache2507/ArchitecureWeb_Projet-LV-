@@ -4,6 +4,7 @@ let User = require('../models/userModel.js');
 let Song = require('../models/songModel.js');
 
 
+/************************PROFILES ACTIONS************************************/
 exports.createProfile = function (request, response) {
     response.render('createProfile.ejs');
 }
@@ -48,6 +49,20 @@ exports.addProfile = function (request, response) {
     });
 };
 
+//delete your own profile and all your music associated with it 
+exports.deleteProfile = function (request, response) {
+    connection.query("DELETE FROM users WHERE users.id = ?", [request.params.id], function (error, resultSQL)  {
+        if (error) {
+            response.status(400).send(error);
+        } else {
+            response.redirect('/homepage');
+
+        }
+    });
+};
+
+
+/************************SONGS ACTIONS************************************/
 //add a song to a profile 
 exports.addSong = function (request, response) {
     let song = new Song(request.body.id, request.body.title, request.body.duration, request.body.musical_genre, request.body.user_id)
@@ -56,18 +71,6 @@ exports.addSong = function (request, response) {
             response.status(400).send(error);
         } else {
            response.status(201).redirect('/profilesFeed');
-        }
-    });
-};
-
-//delete a profile from the list of profiles (of the feed) and his songs linked
-exports.deleteProfile = function (request, response) {
-    connection.query("DELETE FROM 'users' WHERE 'users.'id' = ?", [request.params.id], (error, resultSQL) => {
-        if (error) {
-            response.status(400).send(error);
-        } else {
-            response.redirect('/homepage');
-
         }
     });
 };
