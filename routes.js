@@ -17,7 +17,7 @@ router.get('/homepage', homepageController.homepage);
 //route for the creation profile page 
 router.get('/createProfile', profilesController.createProfile);
 //route for the update profile page
-router.get('/updateProfile', profilesController.updateProfile);
+router.get('/updateProfile/:id', profilesController.updateProfile);
 
 //***********************MVC profiles actions***********************//
 //add a profile

@@ -52,7 +52,7 @@ exports.addProfile = function (request, response) {
 
 //delete your own profile and all your music associated with it 
 exports.deleteProfile = function (request, response) {
-    connection.query("DELETE FROM users WHERE users.id = ?", [request.params.id], function (error, resultSQL)  {
+    connection.query("DELETE FROM users WHERE users.id = ?", request.params.id, function (error, resultSQL)  {
         if (error) {
             response.status(400).send(error);
         } else {
@@ -64,12 +64,12 @@ exports.deleteProfile = function (request, response) {
 
 //update your own profile
 exports.updateProfile = function (request, response) {
-    connection.query("SELECT FROM users WHERE users.id = ?", id, function (error, resultSQLupdateProfile) {
+    connection.query("SELECT * FROM users WHERE users.id = ?", parseInt(request.params.id, 10), function (error, resultSQLupdateProfile) {
         if (error) {
             response.status(400).send(error);
         } else {
             response.status(200);
-            joueurs = resultSQLupdateProfile;
+            users = resultSQLupdateProfile;
             response.render('updateProfile.ejs', {
                id: users.id, firstname: users.firstname, lastname: users.lastname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument 
             });

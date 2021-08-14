@@ -20,11 +20,9 @@
         <form class="updateProfile" action="/updateProfile" method="POST"></form>
         <fieldset>
             <legend>Your information</legend>
-            <input type="hidden" value="<%= user.id %>" name="user_id"/>
+            <input type="hidden" value="<%= id %>" name="user_id"/>
 
-            <label>Nickname:</label>
-            <input type="text" name="nickname" value="<%= nickname %>">
-            <br>
+          
 
             <label>First name:</label>
             <input type="text" name="firstname" value="<%= firstname %>">
@@ -34,6 +32,8 @@
             <input type="text" name="lastname" value="<%= lastname %>">
             <br>
 
+            <!--instrument-->
+            <!--genre-->
 
 
             <input type="submit" name="updateProfileButton" value="Save your changes">
