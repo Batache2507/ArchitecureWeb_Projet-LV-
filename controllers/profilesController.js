@@ -64,6 +64,7 @@ exports.deleteProfile = function (request, response) {
 
 //update your own profile
 exports.updateProfile = function (request, response) {
+    let id = request.params.profileid;
     connection.query("SELECT * FROM users WHERE users.id = ?", parseInt(request.params.id, 10), function (error, resultSQLupdateProfile) {
         if (error) {
             response.status(400).send(error);

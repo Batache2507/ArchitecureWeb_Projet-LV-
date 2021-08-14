@@ -10,7 +10,8 @@
     padding-top: 15px;
   }
 
+/******************************************NETWORKS ICONS******************************************/
 .networklogo {
-    height : 50px;
-    width : 50px;
+   text-align: center;
+   size: 3x;
 }

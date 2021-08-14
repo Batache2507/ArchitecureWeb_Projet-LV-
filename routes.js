@@ -31,9 +31,10 @@ router.get('/signIn', function (request, response) {
 //route to sign in a user 
 router.post('/profile', profilesController.signIn);
 //route to update your profile
+router.get('/profile/updateProfile/:profileid', profilesController.updateProfile);
 
 //route to delete your own profile
-router.get('/profile/deleteProfile/:id', profilesController.deleteProfile); //PAS CORRECT!!!!!!!!!!!!!!!!!!!
+router.get('/profile/deleteProfile/:id', profilesController.deleteProfile); 
 
 
 //***********************MVC songs actions***********************//

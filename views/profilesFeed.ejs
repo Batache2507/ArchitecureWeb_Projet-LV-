@@ -17,7 +17,15 @@
     <body>
         <h1>Here are all the profiles created on Sound 56...</h1><br>
         <% for(var i=0; i < users.length ; i++) { %>
-            <p> Here is <strong><%= users[i].firstname %><%= users[i].lastname %></strong>'s profile, aka <strong><%= users[i].nickname%></strong>.</p>
+            <p>Here is <strong><%= users[i].firstname %> <%= users[i].lastname %></strong>'s profile, aka <strong><%= users[i].nickname%></strong>.</p>
+            <p>He/She is from <strong><%= users[i].country %></strong>.</p>
+            <p>His/Her favorite musical genre is <strong><%= users[i].musical_genre %></strong>.</p>
+            <p>He/She plays <strong><%= users[i].instrument %></strong>.</p>
+            <p>Here is his/her musical productions:</p>
+            <!--<% for(var i=0; i < songs.length; i++) { %>
+                <p><%= songs[i].title%> - <%= songs[i].musical_genre%> - <%= songs[i].duration%> seconds.</p>
+                <audio controls = "controls"></audio>
+                <% } %> -->
             <p>----------------------</p>
         <% } %>
 

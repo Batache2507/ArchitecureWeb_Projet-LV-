@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="/public/css/profile.css"/>
+        <link rel="stylesheet" href="/public/css/createProfile.css"/>
         <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
         <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -17,24 +17,26 @@
     <body>
     <!--creation profile form-->
     <h1>Create a profile</h1><br><br>
+    <div id="form">
     <form class="addProfile" action="/createProfile" method="POST">
     <fieldset>
         <legend>Your information</legend>
 
         <label>Nickname</label>
-        <input type="text" name="nickname" placeholder="Nickname">
+        <input type="text" name="nickname" placeholder="Nickname" required>
         <br>
 
         <label>First name</label>
-        <input type="text" name="firstname" placeholder="First name">
+        <input type="text" name="firstname" placeholder="First name" required>
         <br>
 
         <label>Last name</label>
-        <input type="text" name="lastname" placeholder="Last name">
+        <input type="text" name="lastname" placeholder="Last name" required>
         <br>
 
         <label>What country do you live in?</label>
         <select name="country"> 
+            <option value="" disabled selected>Select your country</option>
             <option value="Belgium">Belgium</option> 
             <option value="Bulgaria">Bulgaria</option>
             <option value="Croatia">Croatia</option>
@@ -50,6 +52,7 @@
 
         <label>Your favorite genre</label>
         <select name="musical_genre">
+            <option value="" disabled selected>Select your genre</option>
             <option value="Rock">Rock</option> 
             <option value="Rap">Rap</option>
             <option value="RnB">RnB</option>
@@ -63,6 +66,7 @@
 
         <label>Your instrument</label>
         <select name="instrument">
+            <option value="" disabled selected>Select your instrument</option>
             <option value="Guitar">Guitar</option> 
             <option value="Bass">Bass</option>
             <option value="Drum">Drum</option>
@@ -72,12 +76,12 @@
         </select>
         <br>
 
-    </fieldset>
+    </fieldset><br>
 
     <input type="submit" name="createProfileButton" class="createProfileButton" value="Create your profile"> 
 
     </form>
-
+    </div>
     </body>
 
 

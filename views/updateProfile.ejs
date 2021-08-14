@@ -17,7 +17,8 @@
     <body>
         <!--update profile form-->
         <h1>Update your profile</h1>
-        <form class="updateProfile" action="/updateProfile" method="POST"></form>
+        <div id="form">
+        <form class="updateProfile" action="/updateProfile" method="POST">
         <fieldset>
             <legend>Your information</legend>
             <input type="hidden" value="<%= id %>" name="user_id"/>
@@ -34,15 +35,10 @@
 
             <!--instrument-->
             <!--genre-->
-
-
-            <input type="submit" name="updateProfileButton" value="Save your changes">
-
-
-            
-
-        </fieldset>
-
+        </fieldset><br>
+        <input type="submit" name="updateProfileButton" value="Save your changes" class="button">
+    </form>
+    </div>
 
     </body>
 
