@@ -5,6 +5,7 @@ let Song = require('../models/songModel.js');
 
 
 /************************PROFILES ACTIONS************************************/
+//redirect the user on the profile creation page when clicking on the button "Create your profile" on the homepage
 exports.createProfile = function (request, response) {
     response.render('createProfile.ejs');
 }
@@ -61,6 +62,20 @@ exports.deleteProfile = function (request, response) {
     });
 };
 
+//update your own profile
+exports.updateProfile = function (request, response) {
+    connection.query("SELECT FROM users WHERE users.id = ?", id, function (error, resultSQLupdateProfile) {
+        if (error) {
+            response.status(400).send(error);
+        } else {
+            response.status(200);
+            joueurs = resultSQLupdateProfile;
+            response.render('updateProfile.ejs', {
+               id: users.id, firstname: users.firstname, lastname: users.lastname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument 
+            });
+        }
+    });
+}
 
 /************************SONGS ACTIONS************************************/
 //add a song to a profile 

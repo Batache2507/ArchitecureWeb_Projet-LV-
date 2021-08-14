@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/updateProfile.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/2c8fdca004.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<!-----------------include the header----------------------->
+<%- include('header.ejs')%>
+    <!---------------------------------------------------------->
+
+    <body>
+        <!--update profile form-->
+        <h1>Update your profile</h1>
+        <form class="updateProfile" action="/updateProfile" method="POST"></form>
+        <fieldset>
+            <legend>Your information</legend>
+            <input type="hidden" value="<%= user.id %>" name="user_id"/>
+
+            <label>Nickname:</label>
+            <input type="text" name="nickname" value="<%= nickname %>">
+            <br>
+
+            <label>First name:</label>
+            <input type="text" name="firstname" value="<%= firstname %>">
+            <br>
+
+            <label>Last name:</label>
+            <input type="text" name="lastname" value="<%= lastname %>">
+            <br>
+
+
+
+            <input type="submit" name="updateProfileButton" value="Save your changes">
+
+
+            
+
+        </fieldset>
+
+
+    </body>
+
+    <!-----------------include the header----------------------->
+    <%- include('footer.ejs')%>
+        <!---------------------------------------------------------->
+
+</html>
