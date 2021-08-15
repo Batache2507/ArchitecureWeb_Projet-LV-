@@ -25,6 +25,7 @@
     <% for(var i=0; i < songs.length ; i++) { %>
     <p><%= songs[i].title%> - <%= songs[i].musical_genre%> - <%= songs[i].duration%> seconds. </p>
     <audio controls = "controls"></audio>
+    <button onclick="if(confirm('Are you sure you want to delete this song?'))location.href = 'profile/deleteSong/<%= songs.id %>';" name="deleteSong" class="button">Delete this song</button>
     <% } %>   
     <h2>Add more musical compositions below</h2>
 <form action="/addSong" method="POST">

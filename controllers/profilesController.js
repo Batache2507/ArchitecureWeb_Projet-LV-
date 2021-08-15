@@ -116,6 +116,17 @@ exports.addSong = function (request, response) {
     });
 };
 
+exports.deleteSong = function (request, response) {
+    connection.query("DELETE FROM songs WHERE songs.id = ?", request.params.id, function (error, resultSQL)  {
+        if (error) {
+            response.status(400).send(error);
+        } else {
+            response.redirect('/homepage');
+
+        }
+    });
+};
+
 
 
 

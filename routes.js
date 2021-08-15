@@ -40,11 +40,9 @@ router.get('/profile/deleteProfile/:id', profilesController.deleteProfile);
 //***********************MVC songs actions***********************//
 //add a Song
 router.post('/addSong', profilesController.addSong);
+//delete a Song
+router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 
-// Supprime un élément de la liste des joueurs
-//router.get('/createProfile/delete/:id', profilesController.deleteProfile);
-// Modifier un élément de la liste joueurs 
-//router.get('/createProfile/update/:id', profilesController.updateProfile);
 
 
 
