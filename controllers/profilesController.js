@@ -16,7 +16,13 @@ exports.feed = function (request, response) {
         if (error) {
             response.status(400).send(error);
         } else {
-            response.render('profilesFeed.ejs', { users: resultSQL });
+            connection.query('SELECT * FROM songs', function (error, resultSQL2) {
+                if (error) {
+                    response.status(400).send(error);
+                } else {
+                    response.render('profilesFeed.ejs', { users: resultSQL, songs: resultSQL2 });
+            }
+        });
         }
     });
 }
@@ -65,7 +71,7 @@ exports.deleteProfile = function (request, response) {
 //update your own profile
 exports.updateProfile = function (request, response) {
     let id = request.params.profileid;
-    connection.query("SELECT * FROM users WHERE users.id = ?", parseInt(request.params.id, 10), function (error, resultSQLupdateProfile) {
+    connection.query("UPDATE * FROM users WHERE users.id = ?", parseInt(request.params.id, 10), function (error, resultSQLupdateProfile) {
         if (error) {
             response.status(400).send(error);
         } else {
