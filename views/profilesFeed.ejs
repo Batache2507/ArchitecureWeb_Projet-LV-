@@ -22,10 +22,13 @@
             <p>His/Her favorite musical genre is <strong><%= users[i].musical_genre %></strong>.</p>
             <p>He/She plays <strong><%= users[i].instrument %></strong>.</p>
             <p>Here is his/her musical productions:</p>
-            <!--<% for(var i=0; i < songs.length; i++) { %>
-                <p><%= songs[i].title%> - <%= songs[i].musical_genre%> - <%= songs[i].duration%> seconds.</p>
+            <% for(var j=0; j < songs.length; j++) { %>
+                <% if (songs[j].user_id === users[i].id) { %>
+                <p><%= songs[j].title%> - <%= songs[j].musical_genre%> - <%= songs[j].duration%> seconds.</p>
                 <audio controls = "controls"></audio>
-                <% } %> -->
+        <% } %>
+<% } %> 
+                
             <p>----------------------</p>
         <% } %>
 

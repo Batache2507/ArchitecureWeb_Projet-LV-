@@ -16,8 +16,7 @@ router.get('/', function (request, response) {
 router.get('/homepage', homepageController.homepage);
 //route for the creation profile page 
 router.get('/createProfile', profilesController.createProfile);
-//route for the update profile page
-router.get('/updateProfile/:id', profilesController.updateProfile);
+
 
 //***********************MVC profiles actions***********************//
 //add a profile
@@ -31,7 +30,8 @@ router.get('/signIn', function (request, response) {
 //route to sign in a user 
 router.post('/profile', profilesController.signIn);
 //route to update your profile
-router.get('/profile/updateProfile/:profileid', profilesController.updateProfile);
+router.get('/profile/updateProfile/:profileid', profilesController.getUpdateProfile);
+router.post('/profile/updateProfile', profilesController.updateProfile);
 
 //route to delete your own profile
 router.get('/profile/deleteProfile/:id', profilesController.deleteProfile); 

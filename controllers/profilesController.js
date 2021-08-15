@@ -20,6 +20,7 @@ exports.feed = function (request, response) {
                 if (error) {
                     response.status(400).send(error);
                 } else {
+                    console.log(resultSQL2);
                     response.render('profilesFeed.ejs', { users: resultSQL, songs: resultSQL2 });
             }
         });
@@ -70,15 +71,33 @@ exports.deleteProfile = function (request, response) {
 
 //update your own profile
 exports.updateProfile = function (request, response) {
-    let id = request.params.profileid;
-    connection.query("UPDATE * FROM users WHERE users.id = ?", parseInt(request.params.id, 10), function (error, resultSQLupdateProfile) {
+    let id = request.body.id;
+    let profile = new User(id, request.body.firstname, request.body.lastname, request.body.nickname, request.body.country, request.body.musical_genre, request.body.instrument);
+    connection.query("UPDATE users SET ? WHERE users.id = ?", [profile, parseInt(id, 10)], function (error, resultSQLupdateProfile) {
         if (error) {
             response.status(400).send(error);
         } else {
             response.status(200);
-            users = resultSQLupdateProfile;
+            users = profile;
             response.render('updateProfile.ejs', {
-               id: users.id, firstname: users.firstname, lastname: users.lastname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument 
+               id: users.id, firstname: users.firstname, lastname: users.lastname, nickname: users.nickname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument 
+            });
+        }
+    });
+}
+
+
+exports.getUpdateProfile = function (request, response) {
+    let id = request.params.profileid;
+    connection.query("SELECT * FROM users WHERE users.id = ?", [parseInt(id, 10)], function (error, resultSQLupdateProfile) {
+        if (error) {
+            response.status(400).send(error);
+        } else {
+            response.status(200);
+            users = resultSQLupdateProfile[0];
+            console.log(users);
+            response.render('updateProfile.ejs', {
+               id: users.id, firstname: users.firstname, lastname: users.lastname, nickname: users.nickname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument 
             });
         }
     });

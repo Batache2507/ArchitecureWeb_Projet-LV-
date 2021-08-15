@@ -18,20 +18,27 @@
         <!--update profile form-->
         <h1>Update your profile</h1>
         <div id="form">
-        <form class="updateProfile" action="/updateProfile" method="POST">
+        <form class="updateProfile" action="/profile/updateProfile" method="POST">
         <fieldset>
             <legend>Your information</legend>
-            <input type="hidden" value="<%= id %>" name="user_id"/>
+            <input type="hidden" value="<%= id %>" name="id"/>
 
-          
 
             <label>First name:</label>
-            <input type="text" name="firstname" value="<%= firstname %>">
+            <input type="text" name="firstname" value="<%= users.firstname %>">
             <br>
 
             <label>Last name:</label>
             <input type="text" name="lastname" value="<%= lastname %>">
             <br>
+
+            
+            <input type="hidden" name="nickname" value="<%= nickname %>">
+            <input type="hidden" name="country" value="<%= country %>">
+            <input type="hidden" name="instrument" value="<%= instrument %>">
+            <input type="hidden" name="musical_genre" value="<%= musical_genre %>">
+
+
 
             <!--instrument-->
             <!--genre-->
