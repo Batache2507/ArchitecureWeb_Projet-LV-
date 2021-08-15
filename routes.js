@@ -2,10 +2,9 @@ let express = require('express');
 let router = express.Router(); 
 
 //***********************MVC routes***********************//
-let homepageController = require('./controllers/homepageController.js');
-//let instrumentsController = require('./controllers/instrumentsController.js');
-let profilesController = require('./controllers/profilesController.js');
 
+let homepageController = require('./controllers/homepageController.js');
+let profilesController = require('./controllers/profilesController.js');
 
 
 //***********************routes for the main pages***********************//
@@ -19,7 +18,7 @@ router.get('/createProfile', profilesController.createProfile);
 
 
 //***********************MVC profiles actions***********************//
-//add a profile
+//create a profile (add one)
 router.post('/createProfile', profilesController.addProfile);
 //route to display profiles on profilesFeed
 router.get('/profilesFeed', profilesController.feed);
@@ -32,7 +31,6 @@ router.post('/profile', profilesController.signIn);
 //route to update your profile
 router.get('/profile/updateProfile/:profileid', profilesController.getUpdateProfile);
 router.post('/profile/updateProfile', profilesController.updateProfile);
-
 //route to delete your own profile
 router.get('/profile/deleteProfile/:id', profilesController.deleteProfile); 
 
