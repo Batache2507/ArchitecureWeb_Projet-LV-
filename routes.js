@@ -42,7 +42,4 @@ router.post('/addSong', profilesController.addSong);
 router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 
 
-
-
-
 module.exports = router; 
