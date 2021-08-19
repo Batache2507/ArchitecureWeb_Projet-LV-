@@ -64,9 +64,10 @@ exports.addProfile = function (request, response) {
     let profile = new User(request.body.id, request.body.firstname, request.body.lastname, request.body.nickname, request.body.country, request.body.musical_genre, request.body.instrument);
     connection.query("INSERT INTO users SET ?", profile, function (error, resultSQL) {
         if (error) {
+            console.log(error);
             response.status(400).json({ "message": 'error' });
         } else {
-            res.status(200).json({ "message": 'success' });
+            response.status(200).json({ "message": 'success' });
         }
     });
 };
