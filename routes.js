@@ -49,23 +49,27 @@ router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 /******************************API ROUTES************************************/
 /****************************************************************************/
 
-//display profiles
+//display all profiles and all songs created
 router.get('/api/profilesFeed', profilesControllerAPI.feed);
+//display all the profiles (only)
+router.get('/api/profilesFeed', profilesControllerAPI.profilesOnlyFeed);
 //display one profile
-//router.get('/api/profilesFeed', profilesControllerAPI.listOneProfile);
+router.get('/api/profile/:id', profilesControllerAPI.listOneProfile);
 //add a profile
 router.post('/api/createProfile', profilesControllerAPI.addProfile);
 //delete a profile 
-router.get('/api/profile/deleteProfile/:id', profilesControllerAPI.deleteProfile); 
+router.delete('/api/profile/deleteProfile/:id', profilesControllerAPI.deleteProfile); 
 //update a profile
-router.post('/api/profile/updateProfile', profilesControllerAPI.updateProfile);
+router.put('/api/profile', profilesControllerAPI.updateProfile);
 
-//display songs 
+//display all songs 
 //display one song 
+router.get('/api/profile/listOneSong/:id', profilesControllerAPI.listOneSong);
 //add a song 
 router.post('/api/addSong', profilesControllerAPI.addSong);
 //delete a song 
-router.get('/api/profile/deleteSong/:id', profilesControllerAPI.deleteSong);
+router.delete('/api/profile/deleteSong/:id', profilesControllerAPI.deleteSong);
 //update a song 
+router.put('/api/profile/updateSong', profilesControllerAPI.updateSong);
 
 module.exports = router; 

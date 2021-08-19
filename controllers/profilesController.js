@@ -116,6 +116,7 @@ exports.addSong = function (request, response) {
     });
 };
 
+//delete a song
 exports.deleteSong = function (request, response) {
     connection.query("DELETE FROM songs WHERE songs.id = ?", request.params.id, function (error, resultSQL)  {
         if (error) {
