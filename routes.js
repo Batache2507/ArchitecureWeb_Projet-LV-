@@ -1,10 +1,13 @@
 let express = require('express'); 
 let router = express.Router(); 
 
-//***********************MVC routes***********************//
+/****************************************************************************/
+/******************************MVC ROUTES************************************/
+/****************************************************************************/
 
 let homepageController = require('./controllers/homepageController.js');
 let profilesController = require('./controllers/profilesController.js');
+let profilesControllerAPI = require('./controllers/profilesControllerAPI');
 
 
 //***********************routes for the main pages***********************//
@@ -41,5 +44,27 @@ router.post('/addSong', profilesController.addSong);
 //delete a Song
 router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 
+
+/****************************************************************************/
+/******************************API ROUTES************************************/
+/****************************************************************************/
+
+//display profiles
+router.get('/api/profilesFeed', profilesControllerAPI.feed);
+//display one profile
+//add a profile
+router.post('/api/createProfile', profilesControllerAPI.addProfile);
+//delete a profile 
+router.get('/api/profile/deleteProfile/:id', profilesControllerAPI.deleteProfile); 
+//update a profile
+router.post('/api/profile/updateProfile', profilesControllerAPI.updateProfile);
+
+//display songs 
+//display one song 
+//add a song 
+router.post('/api/addSong', profilesControllerAPI.addSong);
+//delete a song 
+router.get('/api/profile/deleteSong/:id', profilesControllerAPI.deleteSong);
+//update a song 
 
 module.exports = router; 
