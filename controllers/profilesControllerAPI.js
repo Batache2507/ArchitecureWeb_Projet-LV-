@@ -5,10 +5,6 @@ let Song = require('../models/songModel.js');
 
 
 /************************PROFILES ACTIONS************************************/
-//redirect the user on the profile creation page when clicking on the button "Create your profile" on the homepage
-exports.createProfile = function (request, response) {
-    response.render('createProfile.ejs');
-}
 
 //display all the profiles created on the website on the page 'Profile's feed' (API)
 exports.feed = function (request, response) {
@@ -20,9 +16,25 @@ exports.feed = function (request, response) {
                 if (error) {
                     response.status(400).json({ "message": error});
                 } else {
-                    response.status(200).json(resultSQL, resultSQL2);
+                    response.status(200).json({users: resultSQL, songs: resultSQL2});
             }
         });
+        }
+    });
+}
+
+//display one profile 
+exports.listOneProfile = function (request, response) {
+    connection.query('SELECT * FROM users WHERE id =  ?', function (error, resultSQL){
+        if (error) {
+            response.status(400).json({ "message": 'error' });
+        }
+        else {
+            response.status(200);
+            users = resultSQL;  
+            response.json({
+                id: users.id, firstname: users.firstname, lastname: users.lastname, nickname: users.nickname, country: users.country, musical_genre: users.musical_genre, instrument: users.instrument
+            });
         }
     });
 }
@@ -52,9 +64,9 @@ exports.addProfile = function (request, response) {
     let profile = new User(request.body.id, request.body.firstname, request.body.lastname, request.body.nickname, request.body.country, request.body.musical_genre, request.body.instrument);
     connection.query("INSERT INTO users SET ?", profile, function (error, resultSQL) {
         if (error) {
-            response.status(400).send(error);
+            response.status(400).json({ "message": 'error' });
         } else {
-            response.status(201).redirect('/profilesFeed'); //changer page destination to 'my profile'//
+            res.status(200).json({ "message": 'success' });
         }
     });
 };
@@ -63,10 +75,9 @@ exports.addProfile = function (request, response) {
 exports.deleteProfile = function (request, response) {
     connection.query("DELETE FROM users WHERE users.id = ?", request.params.id, function (error, resultSQL)  {
         if (error) {
-            response.status(400).send(error);
+            response.status(400).json({ "message": 'error '});
         } else {
-            response.redirect('/homepage');
-
+            response.status(200).json({ "message": 'success' });
         }
     });
 };

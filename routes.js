@@ -52,6 +52,7 @@ router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 //display profiles
 router.get('/api/profilesFeed', profilesControllerAPI.feed);
 //display one profile
+//router.get('/api/profilesFeed', profilesControllerAPI.listOneProfile);
 //add a profile
 router.post('/api/createProfile', profilesControllerAPI.addProfile);
 //delete a profile 
