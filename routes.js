@@ -52,7 +52,7 @@ router.get('/profile/deleteSong/:id', profilesController.deleteSong);
 //display all profiles and all songs created
 router.get('/api/profilesFeed', profilesControllerAPI.feed);
 //display all the profiles (only)
-router.get('/api/profilesFeed', profilesControllerAPI.profilesOnlyFeed);
+router.get('/api/profilesFeed/profilesOnlyFeed', profilesControllerAPI.profilesOnlyFeed);
 //display one profile
 router.get('/api/profile/:id', profilesControllerAPI.listOneProfile);
 //add a profile
@@ -62,7 +62,8 @@ router.delete('/api/profile/deleteProfile/:id', profilesControllerAPI.deleteProf
 //update a profile
 router.put('/api/profile', profilesControllerAPI.updateProfile);
 
-//display all songs 
+//display all songs (only)
+router.get('/api/profilesFeed/songsOnlyFeed', profilesControllerAPI.songsOnlyFeed);
 //display one song 
 router.get('/api/profile/listOneSong/:id', profilesControllerAPI.listOneSong);
 //add a song 

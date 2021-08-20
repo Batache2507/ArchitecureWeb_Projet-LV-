@@ -30,7 +30,7 @@ exports.profilesOnlyFeed = function (request, response) {
         if (error) {
             response.status(400).json({ "message": error});
         } else {
-            response.status(200).json({ "message": 'success' });
+            response.status(200).json({users: resultSQL});
         }
     });
 };
@@ -88,6 +88,17 @@ exports.updateProfile = function (request, response) {
 
 
 /************************SONGS ACTIONS************************************/
+//display all the songs (only)
+exports.songsOnlyFeed = function (request, response) {
+    connection.query('SELECT * FROM songs', function (error, resultSQL) {
+        if (error) {
+            response.status(400).json({ "message": error});
+        } else {
+            response.status(200).json({songs: resultSQL});
+        }
+    });
+};
+
 //display ONE song
 exports.listOneSong = function (request, response) {
     connection.query('SELECT * FROM songs WHERE id =  ?', request.params.id, function (error, resultSQL){
@@ -130,7 +141,7 @@ exports.deleteSong = function (request, response) {
 exports.updateSong = function (request, response) {
     let id = request.body.id;
     let song = new Song(id, request.body.title, request.body.duration, request.body.musical_genre, request.body.user_id);
-    connection.query("UPDATE songs SET ? WHERE songs.id = ?", [profile, parseInt(id, 10)], function (error, resultSQLupdateProfile) {
+    connection.query("UPDATE songs SET ? WHERE songs.id = ?", [song, parseInt(id, 10)], function (error, resultSQLupdateProfile) {
         if (error) {
             response.status(400).json({ "message": 'error '});
         } else {
